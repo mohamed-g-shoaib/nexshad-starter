@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Languages } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
@@ -12,6 +11,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 // Extend DropdownMenu to accept dir prop
 declare module "@/components/ui/dropdown-menu" {
@@ -40,12 +44,23 @@ export function LanguageToggle({ dir }: LanguageToggleProps) {
 
   return (
     <DropdownMenu dir={dir}>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" suppressHydrationWarning={true}>
-          <Languages className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">{t("languages.switchLabel")}</span>
-        </Button>
-      </DropdownMenuTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              suppressHydrationWarning={true}
+            >
+              <Languages className="h-[1.2rem] w-[1.2rem]" />
+              <span className="sr-only">{t("languages.switchLabel")}</span>
+            </Button>
+          </DropdownMenuTrigger>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{t("languages.switchLabel")}</p>
+        </TooltipContent>
+      </Tooltip>
       <DropdownMenuContent align={dir === "rtl" ? "start" : "end"}>
         <DropdownMenuItem onClick={() => switchLanguage("en")}>
           {t("languages.english")}
