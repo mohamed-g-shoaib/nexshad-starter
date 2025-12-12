@@ -1,254 +1,257 @@
-# Nexcn
+# Nexcn Starter
 
-A modern Next.js starter template with shadcn/ui components and built-in internationalization (i18n) support for English and Arabic.
+A production-ready Next.js boilerplate with internationalization, testing, and modern tooling.
 
-## What is this?
+## Features
 
-This is a ready-to-use boilerplate for building multilingual Next.js applications. It comes with:
-
-- Next.js 16 with App Router
-- shadcn/ui components (Radix UI based)
-- Tailwind CSS for styling
-- next-intl for internationalization
-- Dark and light theme support
-- Full RTL (right-to-left) support for Arabic
-- Responsive navbar and footer
-- Social media links in footer
+- **Next.js 16** - App Router with React Server Components
+- **TypeScript** - Full type safety
+- **Internationalization** - English and Arabic with next-intl
+- **UI Components** - shadcn/ui with Radix UI primitives
+- **Styling** - Tailwind CSS v4 with design tokens
+- **Dark Mode** - Built-in theme switching
+- **RTL Support** - Full right-to-left layout for Arabic
+- **Testing** - Vitest for unit tests, Playwright for E2E
+- **Code Quality** - ESLint, Prettier, Husky pre-commit hooks
+- **Type-Safe** - TypeScript with strict mode
 
 ## Quick Start
 
-### Install dependencies
+### Installation
 
 ```bash
+# Install dependencies
 pnpm install
-```
 
-### Run development server
-
-```bash
+# Run development server
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. The app will auto-reload as you edit files.
+Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+### Available Commands
+
+```bash
+pnpm dev              # Start development server
+pnpm build            # Build for production
+pnpm start            # Start production server
+pnpm lint             # Check for linting errors
+pnpm lint:fix         # Fix linting errors
+pnpm format           # Format code with Prettier
+pnpm type-check       # Check TypeScript types
+pnpm test             # Run unit tests
+pnpm test:e2e         # Run E2E tests
+```
+
+## Documentation
+
+Comprehensive guides are available in the `docs/` folder:
+
+- **[Getting Started](./docs/getting-started.md)** - Installation and setup
+- **[Project Structure](./docs/project-structure.md)** - Understanding the codebase
+- **[Adding Components](./docs/adding-components.md)** - Creating and using components
+- **[Styling Guide](./docs/styling.md)** - Tailwind CSS and design system
+- **[Internationalization](./docs/internationalization.md)** - Multi-language support
+- **[Testing Guide](./docs/testing.md)** - Unit and E2E testing
+- **[Quick Reference](./docs/quick-reference.md)** - Common commands and patterns
 
 ## Project Structure
 
 ```
-app/
-  [locale]/
-    layout.tsx       - Root layout with providers
-    page.tsx         - Home page
-messages/
-  en.json           - English translations
-  ar.json           - Arabic translations
-components/
-  language-toggle.tsx   - Language switcher
-  mode-toggle.tsx       - Dark/light theme toggle
-  navigation.tsx        - Top navigation menu
-  ui/               - shadcn/ui components
-i18n/
-  routing.ts        - Locale configuration
-  request.ts        - Server-side locale detection
-lib/
-  utils.ts          - Utility functions
+nexcn/
+├── app/                    # Next.js app directory
+│   ├── [locale]/          # Locale-specific routes
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   └── ui/               # shadcn/ui components
+├── i18n/                 # Internationalization config
+├── messages/             # Translation files
+│   ├── en.json          # English
+│   └── ar.json          # Arabic
+├── lib/                  # Utility functions
+├── tests/               # E2E tests
+└── docs/                # Documentation
 ```
 
-## How to Edit Content
+## Common Tasks
 
-### Change Text and Translations
+### Adding a New Page
 
-1. Open `messages/en.json` for English text
-2. Open `messages/ar.json` for Arabic text
-3. Edit the values in JSON
-4. The page updates automatically
+1. Create `app/[locale]/your-page/page.tsx`
+2. Add translations to `messages/en.json` and `messages/ar.json`
+3. Add navigation link if needed
 
-Example:
+### Adding a Component
+
+```bash
+# Add shadcn/ui component
+pnpm dlx shadcn@latest add button
+
+# Or create custom component in components/
+```
+
+### Adding Translations
+
+Edit `messages/en.json` and `messages/ar.json`:
 
 ```json
 {
-  "content": {
-    "title": "Your Title Here"
+  "YourPage": {
+    "title": "Your Title",
+    "description": "Your description"
   }
 }
 ```
 
-Then use in code:
+Use in components:
 
 ```tsx
-const t = useTranslations();
-<h1>{t("content.title")}</h1>;
-```
+import { useTranslations } from "next-intl";
 
-### Edit the Home Page
-
-Main content is in `app/[locale]/page.tsx`:
-
-- Navbar: Lines 16-47
-- Main content: Lines 48-130
-- CTA buttons: Lines 97-130
-- Footer: Lines 131-249
-
-### Update Brand/Logo
-
-1. Replace `public/mg-8bit.svg` with your logo
-2. Update "Nexshad" text in navbar (line 32)
-3. Update footer logo (line 156)
-
-### Change Navigation Links
-
-Edit `components/navigation.tsx`:
-
-```tsx
-const navigationItems = [
-  {
-    title: t("navigation.home"),
-    href: "/",
-    description: t("footer.content"),
-  },
-  // Add more items here
-];
-```
-
-Then update `messages/en.json` and `messages/ar.json` with the text.
-
-### Update Social Media Links
-
-In footer (around line 220-235), change the href values:
-
-```tsx
-<a href="https://github.com/your-profile" ...>
-```
-
-## Customization
-
-### Change Theme Colors
-
-Edit `app/globals.css` to adjust Tailwind theme or use Tailwind's built-in color system.
-
-### Modify Navbar
-
-In `app/[locale]/page.tsx` (lines 16-47):
-
-- Change logo
-- Adjust padding and spacing
-- Add or remove navigation items
-- Change colors
-
-### Modify Footer
-
-In `app/[locale]/page.tsx` (lines 131-249):
-
-- Add more footer sections
-- Change link text
-- Add more social media icons
-
-### Switch to Different Language
-
-The app supports English (en) and Arabic (ar) by default. To add another language:
-
-1. Create `messages/[lang-code].json`
-2. Add to `i18n/routing.ts`:
-   ```ts
-   locales: ["en", "ar", "fr"];
-   ```
-3. Update `app/[locale]/layout.tsx` generateStaticParams:
-   ```ts
-   return [{ locale: "en" }, { locale: "ar" }, { locale: "fr" }];
-   ```
-
-## Adding shadcn/ui Components
-
-### Install a Component
-
-```bash
-npx shadcn@latest add button
-```
-
-### Use It
-
-```tsx
-import { Button } from "@/components/ui/button";
-
-export default function Page() {
-  return <Button>Click me</Button>;
+export function Component() {
+  const t = useTranslations("YourPage");
+  return <h1>{t("title")}</h1>;
 }
 ```
 
-Browse available components at [shadcn.com](https://shadcn.com)
+### Styling Components
 
-## Clean Up the Boilerplate
+Use Tailwind CSS with design tokens:
 
-To remove demo content and start fresh:
-
-### 1. Clear Home Page Content
-
-Edit `app/[locale]/page.tsx`:
-
-- Remove logo section (lines 61-70)
-- Replace content section (lines 72-86) with your own
-- Remove CTA buttons (lines 88-130)
-
-### 2. Update Messages
-
-Clear or update:
-
-- `messages/en.json`
-- `messages/ar.json`
-
-### 3. Replace Logo
-
-Put your logo in `public/` and update src paths in page.tsx
-
-### 4. Simplify Navigation
-
-Edit `components/navigation.tsx` to match your needs
-
-### 5. Clean Footer
-
-Adjust footer content and links in `app/[locale]/page.tsx`
-
-## Building for Production
-
-```bash
-pnpm build
+```tsx
+<div className="bg-card text-foreground rounded-lg border p-6">Content</div>
 ```
 
-Then:
+## Tech Stack
+
+### Core
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript 5
+
+### Styling
+
+- Tailwind CSS v4
+- shadcn/ui
+- Radix UI
+- next-themes
+
+### Internationalization
+
+- next-intl
+
+### Testing
+
+- Vitest (unit tests)
+- React Testing Library
+- Playwright (E2E tests)
+
+### Code Quality
+
+- ESLint
+- Prettier
+- Husky
+- lint-staged
+
+## Development Workflow
+
+### Pre-commit Hooks
+
+The project uses Husky to run checks before commits:
+
+- ESLint fixes
+- Prettier formatting
+- Type checking
+
+### Testing
 
 ```bash
-pnpm start
+# Unit tests
+pnpm test              # Run tests
+pnpm test:ui           # Run with UI
+pnpm test:coverage     # Generate coverage
+
+# E2E tests
+pnpm test:e2e          # Run E2E tests
+pnpm test:e2e:ui       # Run with UI
+```
+
+### Code Quality
+
+```bash
+pnpm lint              # Check for errors
+pnpm lint:fix          # Fix errors
+pnpm format            # Format code
+pnpm type-check        # Check types
 ```
 
 ## Deployment
 
-Deploy to Vercel (easiest for Next.js):
+### Build for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+### Deploy to Vercel
 
 ```bash
 vercel
 ```
 
-Or use any other hosting that supports Node.js.
+Or use any hosting platform that supports Node.js.
 
-## Key Technologies
+## Customization
 
-- **Next.js 16** - React framework with server components
-- **next-intl** - Internationalization for multiple languages
-- **shadcn/ui** - High-quality UI components
-- **Tailwind CSS** - Utility-first styling
-- **Radix UI** - Accessible component primitives
-- **next-themes** - Dark/light mode management
+### Change Theme Colors
 
-## Learning Resources
+Edit `app/globals.css` to modify CSS variables for light and dark modes.
 
-- [Next.js Docs](https://nextjs.org/docs)
-- [shadcn/ui Docs](https://shadcn.com)
-- [Tailwind CSS Docs](https://tailwindcss.com)
-- [next-intl Docs](https://next-intl-docs.vercel.app/)
+### Add New Language
+
+1. Create `messages/[lang].json`
+2. Add locale to `i18n/routing.ts`:
+   ```typescript
+   locales: ["en", "ar", "fr"];
+   ```
+3. Translate content in the new JSON file
+
+### Modify Components
+
+All components are in `components/`. UI components from shadcn/ui are in `components/ui/` and can be customized.
 
 ## Browser Support
 
-Works on all modern browsers that support ES2020+.
+Modern browsers supporting ES2020+:
+
+- Chrome 80+
+- Firefox 75+
+- Safari 13.1+
+- Edge 80+
+
+## Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui Documentation](https://ui.shadcn.com)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [next-intl Documentation](https://next-intl-docs.vercel.app)
+- [Vitest Documentation](https://vitest.dev)
+- [Playwright Documentation](https://playwright.dev)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
 
 ## License
 
-MIT - Use freely in your projects.
+MIT License - Use freely in your projects.
+
+## Support
+
+For detailed guides and examples, check the [documentation](./docs/README.md).
