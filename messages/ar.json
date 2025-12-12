@@ -1,0 +1,47 @@
+{
+  "cta": {
+    "deploy": "انشر الآن",
+    "documentation": "شوف الأدلة"
+  },
+  "content": {
+    "title": "Next.js Starter مع shadcn و i18n",
+    "description": {
+      "start": "نموذج بدء حديث لبناء تطبيقات Next.js متعددة اللغات مع ",
+      "templates": "مكونات shadcn/ui",
+      "middle": " و ",
+      "learning": "next-intl",
+      "end": " للترجمة السلسة."
+    }
+  },
+  "theme": {
+    "toggleLabel": "غير السمة",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "languages": {
+    "english": "English",
+    "arabic": "العربية",
+    "switchLabel": "غير اللغة"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "about": "معلومات",
+    "contact": "اتصل بنا",
+    "deploy": "انشر",
+    "documentation": "الأدلة"
+  },
+  "footer": {
+    "description": "نموذج Next.js حديث مع shadcn/ui و next-intl لتطوير متعدد اللغات بسلاسة.",
+    "links": {
+      "product": "المنتج",
+      "features": "الميزات",
+      "documentation": "الأدلة",
+      "company": "الشركة",
+      "about": "معلومات",
+      "contact": "اتصل بنا",
+      "social": "التواصل الاجتماعي"
+    },
+    "copyright": "© 2025 Nexshad. جميع الحقوق محفوظة."
+  }
+}

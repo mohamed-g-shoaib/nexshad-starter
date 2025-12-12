@@ -1,0 +1,47 @@
+{
+  "cta": {
+    "deploy": "Deploy Now",
+    "documentation": "View Docs"
+  },
+  "content": {
+    "title": "Next.js Starter with shadcn and i18n",
+    "description": {
+      "start": "A modern boilerplate for building multilingual Next.js applications with ",
+      "templates": "shadcn/ui components",
+      "middle": " and ",
+      "learning": "next-intl",
+      "end": " for seamless internationalization."
+    }
+  },
+  "theme": {
+    "toggleLabel": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "languages": {
+    "english": "English",
+    "arabic": "العربية",
+    "switchLabel": "Switch language"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "deploy": "Deploy",
+    "documentation": "Documentation"
+  },
+  "footer": {
+    "description": "A modern Next.js starter template with shadcn/ui and next-intl for seamless multilingual development.",
+    "links": {
+      "product": "Product",
+      "features": "Features",
+      "documentation": "Documentation",
+      "company": "Company",
+      "about": "About",
+      "contact": "Contact",
+      "social": "Social"
+    },
+    "copyright": "© 2025 Nexshad. All rights reserved."
+  }
+}
