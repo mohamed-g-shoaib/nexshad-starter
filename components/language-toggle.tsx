@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Languages } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import type { Locale } from "@/app/[lang]/dictionaries";
 
 // Extend DropdownMenu to accept dir prop
 declare module "@/components/ui/dropdown-menu" {
@@ -21,22 +21,18 @@ declare module "@/components/ui/dropdown-menu" {
 }
 
 interface LanguageToggleProps {
-  translations: {
-    english: string;
-    arabic: string;
-    switchLabel: string;
-  };
   dir?: "ltr" | "rtl";
 }
 
-export function LanguageToggle({ translations, dir }: LanguageToggleProps) {
+export function LanguageToggle({ dir }: LanguageToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
+  const t = useTranslations();
 
-  const switchLanguage = (newLocale: Locale) => {
+  const switchLanguage = (newLocale: string) => {
     // Remove the current locale from pathname
-    const currentLocale = pathname.split("/")[1];
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, "");
+    const pathWithoutLocale = pathname.slice(locale.length + 1);
 
     // Navigate to the new locale
     router.push(`/${newLocale}${pathWithoutLocale || "/"}`);
@@ -47,15 +43,15 @@ export function LanguageToggle({ translations, dir }: LanguageToggleProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon" suppressHydrationWarning={true}>
           <Languages className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">{translations.switchLabel}</span>
+          <span className="sr-only">{t("languages.switchLabel")}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align={dir === "rtl" ? "start" : "end"}>
         <DropdownMenuItem onClick={() => switchLanguage("en")}>
-          {translations.english}
+          {t("languages.english")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => switchLanguage("ar")}>
-          {translations.arabic}
+          {t("languages.arabic")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
