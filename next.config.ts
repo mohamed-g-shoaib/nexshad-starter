@@ -7,4 +7,10 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
-export default withNextIntl(nextConfig);
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default withNextIntl(withBundleAnalyzer(nextConfig));
