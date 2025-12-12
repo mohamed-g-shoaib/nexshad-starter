@@ -1,4 +1,4 @@
-# Nexshad
+# Nexcn
 
 A modern Next.js starter template with shadcn/ui components and built-in internationalization (i18n) support for English and Arabic.
 
