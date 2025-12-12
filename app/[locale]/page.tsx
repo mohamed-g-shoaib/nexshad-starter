@@ -27,6 +27,7 @@ export default function Home() {
                 alt="Nexshad logo"
                 width={32}
                 height={18}
+                style={{ width: "40px", height: "auto" }}
               />
               <span className="text-lg font-semibold text-black dark:text-white">
                 Nexshad
@@ -63,6 +64,7 @@ export default function Home() {
                 width={100}
                 height={46}
                 priority
+                style={{ width: "100px", height: "auto" }}
               />
             </div>
 
@@ -147,6 +149,7 @@ export default function Home() {
                       alt="Nexshad logo"
                       width={32}
                       height={18}
+                      style={{ width: "40px", height: "auto" }}
                     />
                     <span className="text-lg font-semibold text-black dark:text-white">
                       Nexshad

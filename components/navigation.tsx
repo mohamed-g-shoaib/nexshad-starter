@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { Home, Info, Mail } from "lucide-react";
 
 import {
   NavigationMenu,
