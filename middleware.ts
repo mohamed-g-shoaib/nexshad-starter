@@ -6,12 +6,19 @@ const locales = ["en", "ar"];
 const defaultLocale = "en";
 
 function getLocale(request: NextRequest): string {
-  const acceptLanguage =
-    request.headers.get("accept-language") || defaultLocale;
-  const languages = new Negotiator({
-    "accept-language": acceptLanguage,
-  }).languages();
-  return match(languages, locales, defaultLocale);
+  try {
+    // Get the Accept-Language header, defaulting to English if not present
+    const acceptLanguage =
+      request.headers?.get("accept-language") || "en-US,en;q=0.5";
+    const languages = new Negotiator({
+      "accept-language": acceptLanguage,
+    }).languages();
+    return match(languages, locales, defaultLocale);
+  } catch (error) {
+    // Fallback to default locale if header parsing fails
+    console.warn("Failed to parse Accept-Language header:", error);
+    return defaultLocale;
+  }
 }
 
 export function middleware(request: NextRequest) {
@@ -33,9 +40,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    "/((?!_next).*)",
-    // Optional: only run on root (/) URL
-    // '/'
+    // Skip all internal paths (_next), static assets, and API routes
+    "/((?!_next|api|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|ico|css|js|woff|woff2)).*)",
   ],
 };

@@ -13,7 +13,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import type { Locale } from "@/app/[lang]/dictionaries";
 
-export function LanguageToggle() {
+interface LanguageToggleProps {
+  translations: {
+    english: string;
+    arabic: string;
+    switchLabel: string;
+  };
+  dir?: "ltr" | "rtl";
+}
+
+export function LanguageToggle({ translations, dir }: LanguageToggleProps) {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -29,17 +38,17 @@ export function LanguageToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" suppressHydrationWarning={true}>
           <Languages className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">Switch language</span>
+          <span className="sr-only">{translations.switchLabel}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" dir={dir || "ltr"}>
         <DropdownMenuItem onClick={() => switchLanguage("en")}>
-          English
+          {translations.english}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => switchLanguage("ar")}>
-          العربية
+          {translations.arabic}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
