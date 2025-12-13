@@ -5,8 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > ⚠️🔴 **Important:** Please **ignore** the `npm i create-nexcn` instruction in the sidebar. This package is an interactive CLI tool, not a dependency.
-
-> Before getting started, make sure you have: **Node.js** 20.x or higher, and **pnpm** 8.x or higher (install with `npm install -g pnpm`)
+>
+> 🚩 Before getting started, make sure you have: **Node.js** 20.x or higher, and **pnpm** 8.x or higher (✅ install with `npm install -g pnpm`)
 
 ## 🚀 How to Use
 
@@ -82,7 +82,6 @@ Read the guides in order to get started:
 6. **[Testing Guide](./docs/06-testing-guide.md)** - Writing unit and E2E tests with Vitest and Playwright
 7. **[SEO Optimization](./docs/08-seo-optimization.md)** - Optimize for Google ranking, sitemap, JSON-LD schema, and LLM crawling
 8. **[Cheat Sheet](./docs/07-cheat-sheet.md)** - Quick reference for common tasks and commands
-9. **[Publishing to npm](./docs/09-publishing-to-npm.md)** - Guide for publishing this boilerplate to npm registry
 
 ## Commands
 
@@ -113,12 +112,13 @@ pnpm type-check # Check TypeScript types
 
 ## Deployment
 
-To deploy a production build:
+You can deploy on Vercel easily with their cli with the following command :
 
 ```bash
-pnpm build
-pnpm start
+vercel
 ```
+
+for more info check [Deploying Projects from Vercel CLI](https://vercel.com/docs/cli/deploying-from-cli)
 
 ## Troubleshooting
 
@@ -140,6 +140,10 @@ pnpm start
 
 - Make sure TypeScript is installed: `npm install -g typescript`
 - Restart your editor's TypeScript server
+
+## Issues
+
+If you find any issues, please open an issue on the [GitHub repository](https://github.com/mohamed-g-shoaib/nexcn/issues).
 
 ## Contributing
 
