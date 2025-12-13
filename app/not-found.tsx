@@ -55,8 +55,12 @@ export default function NotFound() {
             >
               Go Back
             </Button>
-            <Button asChild className="flex-1 cursor-pointer" size="lg">
-              <Link href="/">Go Home</Link>
+            <Button
+              render={<Link href="/" />}
+              className="flex-1 cursor-pointer"
+              size="lg"
+            >
+              Go Home
             </Button>
           </div>
         </div>

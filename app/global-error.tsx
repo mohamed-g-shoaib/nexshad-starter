@@ -88,12 +88,12 @@ export default function GlobalError({
                   Go Back
                 </Button>
                 <Button
-                  asChild
+                  render={<Link href="/" />}
                   variant="outline"
                   className="flex-1 cursor-pointer"
                   size="lg"
                 >
-                  <Link href="/">Go Home</Link>
+                  Go Home
                 </Button>
               </div>
             </div>

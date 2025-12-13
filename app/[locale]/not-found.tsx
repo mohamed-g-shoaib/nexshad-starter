@@ -47,8 +47,12 @@ export default function NotFound() {
           >
             {t("notFound.back")}
           </Button>
-          <Button asChild className="flex-1 cursor-pointer" size="lg">
-            <Link href="/">{t("notFound.home")}</Link>
+          <Button
+            render={<Link href="/" />}
+            className="flex-1 cursor-pointer"
+            size="lg"
+          >
+            {t("notFound.home")}
           </Button>
         </div>
       </div>
