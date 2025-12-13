@@ -1,22 +1,24 @@
 # Nexcn
 
-![Nexcn Starter Banner](./app/opengraph-image.png)
-
 [![npm version](https://img.shields.io/npm/v/create-nexcn.svg)](https://www.npmjs.com/package/create-nexcn)
 [![npm downloads](https://img.shields.io/npm/dm/create-nexcn.svg)](https://www.npmjs.com/package/create-nexcn)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> ⚠️🔴 **Important:** Please **ignore** the `npm i create-nexcn` instruction in the sidebar. This package is an interactive CLI tool, not a dependency.
+
+> Before getting started, make sure you have: **Node.js** 20.x or higher, and **pnpm** 8.x or higher (install with `npm install -g pnpm`)
 
 ## 🚀 How to Use
 
 To create a new project, run one of the following commands:
 
-### Option 1: Using npx
+### ➡️ Option 1: Using npx
 
 ```bash
 npx create-nexcn my-app
 ```
 
-### Option 2: Using npm init
+### ➡️ Option 2: Using npm init
 
 ```bash
 npm init nexcn my-app
@@ -29,24 +31,15 @@ cd my-app
 pnpm dev
 ```
 
-> ⚠️ **Important:** Please **ignore** the `npm i create-nexcn` instruction in the sidebar. This package is an interactive CLI tool, not a dependency.
+## Nexcn Preview
+
+![Nexcn Starter Banner](./app/opengraph-image.png)
 
 ## About Nexcn
 
 A Next.js 16 starter with everything you need to ship fast: TypeScript, Tailwind CSS v4, Base UI, internationalization, and testing configured out of the box.
 
 Nexcn is designed for developers who want to build modern web applications without spending time on boilerplate configuration. Whether you're building a personal project, SaaS product, or multi-language application, Nexcn comes pre-configured with production-ready tooling and best practices so you can focus on building your product.
-
-## Prerequisites
-
-Before getting started, make sure you have:
-
-- **Node.js** 20.x or higher
-- **pnpm** 8.x or higher (install with `npm install -g pnpm`)
-
-## Quick Start
-
-See the [How to Use](#-how-to-use) section above.
 
 ### Manual Installation
 
