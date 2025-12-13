@@ -42,7 +42,7 @@ export function Navigation({ dir }: NavigationProps) {
 
   return (
     <NavigationMenu dir={dir}>
-      <NavigationMenuList>
+      <NavigationMenuList role="list">
         {/* Home Link - Update or add more top-level links here */}
         <NavigationMenuItem>
           <NavigationMenuLink
