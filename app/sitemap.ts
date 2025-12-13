@@ -1,10 +1,9 @@
 /**
  * Sitemap Configuration
  *
- * Generates the sitemap.xml for search engines.
+ * Generates the sitemap.xml for search engines and LLM crawlers.
  *
  * To customize:
- * - Replace "https://example.com" with your actual domain
  * - Add all your site's pages to the array
  * - Update changeFrequency and priority based on your content update schedule
  * - For dynamic pages, fetch URLs from your database or API
@@ -12,25 +11,31 @@
 
 import type { MetadataRoute } from "next";
 
+const BASE_URL = "https://nexcn.vercel.app";
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Dynamic pages with today's date for frequent updates
+  const today = new Date();
+
   return [
+    // Homepage (highest priority)
     {
-      url: "https://example.com", // Replace with your domain
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
+      url: `${BASE_URL}/en`,
+      lastModified: today,
+      changeFrequency: "daily",
+      priority: 1.0,
     },
     {
-      url: "https://example.com/about", // Add your pages here
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: "https://example.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.5,
+      url: `${BASE_URL}/ar`,
+      lastModified: today,
+      changeFrequency: "daily",
+      priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/en`,
+          ar: `${BASE_URL}/ar`,
+        },
+      },
     },
   ];
 }

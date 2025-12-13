@@ -14,6 +14,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import { useLocale, useTranslations } from "next-intl";
 import { ModeToggle } from "@/components/mode-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
@@ -21,14 +22,31 @@ import { Navigation } from "@/components/navigation";
 import { MobileNavigation } from "@/components/mobile-navigation";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
+import { generateOrganizationSchema, generateFAQSchema } from "@/app/schema";
 
 export default function Home() {
   const locale = useLocale();
   const t = useTranslations();
   const isRTL = locale === "ar";
 
+  // JSON-LD schemas for SEO and LLM crawling
+  const organizationSchema = generateOrganizationSchema();
+  const faqSchema = generateFAQSchema();
+
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+      {/* JSON-LD Schema Markup for Google and LLM Crawlers */}
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Navbar */}
       <nav
         className="w-full border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950"

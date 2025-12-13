@@ -40,23 +40,94 @@ export async function generateStaticParams() {
 /**
  * SEO Metadata
  *
- * Update these values to match your project:
- * - title: Your site name and page title template
- * - description: A brief description of your site (150-160 characters recommended)
- * - icons: Path to your favicon and apple-touch-icon
+ * Comprehensive SEO configuration for Google ranking and LLM crawling.
+ * Optimized for both search engines and AI language model indexing.
  *
  * For page-specific metadata, export metadata from individual page.tsx files.
  */
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nexcn.vercel.app"),
   title: {
-    default: "Nexcn Starter", // Update with your site name
-    template: "%s | Nexcn Starter", // Page title format
+    default: "Nexcn - Next.js Starter with TypeScript, Tailwind & i18n",
+    template: "%s | Nexcn Starter",
   },
   description:
-    "Production-ready Next.js 16 starter with TypeScript, shadcn/ui, comprehensive testing, and bilingual support (EN/AR).", // Update with your site description
+    "Nexcn is a production-ready Next.js 16 starter. Includes TypeScript, Tailwind CSS v4, Base UI, shadcn/ui, next-intl i18n with English & Arabic, Vitest + Playwright testing, and ESLint/Prettier configured out of the box.",
+  keywords: [
+    "Next.js",
+    "Next.js starter",
+    "TypeScript",
+    "Tailwind CSS",
+    "Base UI",
+    "shadcn/ui",
+    "internationalization",
+    "i18n",
+    "English",
+    "Arabic",
+    "RTL",
+    "Vitest",
+    "Playwright",
+    "React 19",
+  ],
+  authors: [{ name: "Nexcn" }],
+  creator: "Nexcn",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   icons: {
-    icon: "/icon.svg", // Path to favicon
-    apple: "/apple-touch-icon.png", // Path to Apple touch icon
+    icon: "/icon.svg",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/icon.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["ar_SA"],
+    url: "https://nexcn.vercel.app",
+    siteName: "Nexcn",
+    title: "Nexcn - Production-Ready Next.js Starter",
+    description:
+      "Ship faster with Nexcn. A Next.js 16 starter with TypeScript, Tailwind CSS, Base UI, shadcn/ui, internationalization, testing, and code quality tools configured out of the box.",
+    images: [
+      {
+        url: "https://nexcn.vercel.app/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Nexcn Starter Banner",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexcn - Next.js Starter",
+    description:
+      "Production-ready Next.js 16 starter with everything you need to ship fast.",
+    images: ["https://nexcn.vercel.app/opengraph-image.png"],
+  },
+  verification: {
+    // Add your Google Search Console verification code here
+    // google: "your-google-verification-code",
+  },
+  alternates: {
+    canonical: "https://nexcn.vercel.app/en",
+    languages: {
+      en: "https://nexcn.vercel.app/en",
+      ar: "https://nexcn.vercel.app/ar",
+    },
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
   },
 };
 
