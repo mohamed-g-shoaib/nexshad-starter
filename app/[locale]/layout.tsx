@@ -155,9 +155,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning dir={isRTL ? "rtl" : "ltr"}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${
-          locale === "ar" ? cairo.variable : ""
-        } antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cairo.variable} font-sans antialiased`}
+        style={{
+          fontFamily: isRTL ? "var(--font-cairo)" : "var(--font-geist-sans)",
+        }}
       >
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
