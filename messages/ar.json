@@ -10,7 +10,7 @@
     "description": "",
     "instructions": {
       "line1": "- هذه هي الصفحة الرئيسية. عدلها في app/[locale]/page.tsx",
-      "line2": "- حرر شريط التنقل في components/navigation.tsx، والتذييل في components/footer.tsx",
+      "line2": "- حرر شريط التنقل في components/navigation.tsx (سطح المكتب) و components/mobile-navigation.tsx (درج الجوال)، والتذييل في components/footer.tsx",
       "line3": "- الشعار في /public/nexcn.svg، الأيقونة وصور OpenGraph في /app",
       "line4": "- المحتوى والترجمات في messages/en.json و messages/ar.json",
       "line5": "- بيانات SEO في app/[locale]/layout.tsx، وخريطة الموقع في app/sitemap.ts"
@@ -61,6 +61,7 @@
     "switchLabel": "غير اللغة"
   },
   "navigation": {
+    "menu": "القائمة",
     "home": "الرئيسية",
     "about": "معلومات",
     "contact": "اتصل بنا",
@@ -76,7 +77,10 @@
     "nextIntlDescription": "دعم تعدد اللغات لـ Next.js",
     "homeDescription": "ابدأ مع Nexcn",
     "aboutDescription": "تعرف على الميزات والتكنولوجيا",
-    "contactDescription": "تواصل معنا للحصول على الدعم"
+    "contactDescription": "تواصل معنا للحصول على الدعم",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "theme": "السمة"
   },
   "footer": {
     "description": "قالب Next.js 16 جاهز للإنتاج مع TypeScript و Base UI واختبارات شاملة ودعم ثنائي اللغة.",

@@ -10,7 +10,7 @@
     "description": "",
     "instructions": {
       "line1": "- This is the homepage. Edit it at app/[locale]/page.tsx",
-      "line2": "- Edit navbar in components/navigation.tsx, and footer in components/footer.tsx",
+      "line2": "- Edit navbar in components/navigation.tsx (desktop) and components/mobile-navigation.tsx (mobile drawer), footer in components/footer.tsx",
       "line3": "- Logo in /public/nexcn.svg, favicon and OpenGraph images in /app",
       "line4": "- Content and translations in messages/en.json and messages/ar.json",
       "line5": "- SEO metadata in app/[locale]/layout.tsx, sitemap in app/sitemap.ts"
@@ -61,6 +61,7 @@
     "switchLabel": "Switch language"
   },
   "navigation": {
+    "menu": "Menu",
     "home": "Home",
     "about": "About",
     "contact": "Contact",
@@ -76,7 +77,10 @@
     "nextIntlDescription": "Internationalization for Next.js",
     "homeDescription": "Get started with Nexcn",
     "aboutDescription": "Learn about features and tech",
-    "contactDescription": "Contact us for support"
+    "contactDescription": "Contact us for support",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme"
   },
   "footer": {
     "description": "Production-ready Next.js 16 starter with TypeScript, Base UI, comprehensive testing, and bilingual support.",
