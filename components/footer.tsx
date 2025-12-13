@@ -13,6 +13,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { siGithub, siX } from "simple-icons";
 
@@ -41,7 +42,10 @@ export function Footer({ dir }: FooterProps) {
             <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
               {/* Logo and Description - Update logo and brand name */}
               <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
+                <Link
+                  href="/"
+                  className="fit-content flex items-center gap-2 transition-opacity hover:opacity-80"
+                >
                   <Image
                     className="dark:invert"
                     src="/nexcn.svg" // Replace with your logo
@@ -53,7 +57,7 @@ export function Footer({ dir }: FooterProps) {
                   <span className="text-lg font-semibold text-black dark:text-white">
                     Nexcn {/* Replace with your brand name */}
                   </span>
-                </div>
+                </Link>
                 <p className="max-w-xs text-sm text-zinc-600 dark:text-zinc-400">
                   {t("footer.description")}
                 </p>
@@ -74,7 +78,7 @@ export function Footer({ dir }: FooterProps) {
                     {t("navigation.nextjs")}
                   </a>
                   <a
-                    href="https://base-ui.com"
+                    href="https://base-ui.com/react/overview/quick-start"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-zinc-600 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"

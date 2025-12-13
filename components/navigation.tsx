@@ -93,7 +93,7 @@ export function Navigation({ dir }: NavigationProps) {
               </ListItem>
               <ListItem
                 dir={dir}
-                href="https://base-ui.com"
+                href="https://base-ui.com/react/overview/quick-start"
                 title={t("navigation.baseUi")}
               >
                 {t("navigation.baseUiDescription")}
