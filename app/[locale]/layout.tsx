@@ -13,6 +13,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Cairo } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { isRTLLocale } from "@/lib/rtl";
 import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -149,7 +150,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const isRTL = locale === "ar";
+  const isRTL = isRTLLocale(locale);
   const messages = await getMessages();
 
   return (

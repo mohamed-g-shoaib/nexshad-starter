@@ -3,6 +3,7 @@
 import { Languages } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { isRTLLocale } from "@/lib/rtl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,7 +23,7 @@ export function LanguageToggle() {
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations();
-  const isRTL = locale === "ar";
+  const isRTL = isRTLLocale(locale);
 
   const switchLanguage = (newLocale: string) => {
     // Remove the current locale from pathname

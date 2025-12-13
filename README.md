@@ -81,7 +81,8 @@ Read the guides in order to get started:
 5. **[Internationalization](./docs/05-internationalization-guide.md)** - Setting up multi-language support with next-intl
 6. **[Testing Guide](./docs/06-testing-guide.md)** - Writing unit and E2E tests with Vitest and Playwright
 7. **[SEO Optimization](./docs/08-seo-optimization.md)** - Optimize for Google ranking, sitemap, JSON-LD schema, and LLM crawling
-8. **[Cheat Sheet](./docs/07-cheat-sheet.md)** - Quick reference for common tasks and commands
+8. **[RTL Support](./docs/09-rtl-support.md)** - Adding support for right-to-left languages like Arabic
+9. **[Cheat Sheet](./docs/07-cheat-sheet.md)** - Quick reference for common tasks and commands
 
 ## Commands
 

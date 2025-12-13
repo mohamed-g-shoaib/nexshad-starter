@@ -1,4 +1,4 @@
-# SEO Optimization Guide
+# 07. SEO Optimization Guide
 
 This guide covers all SEO configurations in Nexcn and how to optimize for Google ranking and LLM crawling.
 

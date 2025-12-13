@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { useLocale, useTranslations } from "next-intl";
+import { isRTLLocale } from "@/lib/rtl";
 import { ModeToggle } from "@/components/mode-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
 import { Navigation } from "@/components/navigation";
@@ -27,7 +28,7 @@ import { generateOrganizationSchema, generateFAQSchema } from "@/app/schema";
 export default function Home() {
   const locale = useLocale();
   const t = useTranslations();
-  const isRTL = locale === "ar";
+  const isRTL = isRTLLocale(locale);
 
   // JSON-LD schemas for SEO and LLM crawling
   const organizationSchema = generateOrganizationSchema();
