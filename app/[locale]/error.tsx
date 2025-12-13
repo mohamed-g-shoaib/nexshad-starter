@@ -75,12 +75,12 @@ export default function Error({
             {t("error.back")}
           </Button>
           <Button
-            asChild
+            render={<Link href="/" />}
             variant="outline"
             className="flex-1 cursor-pointer"
             size="lg"
           >
-            <Link href="/">{t("error.home")}</Link>
+            {t("error.home")}
           </Button>
         </div>
       </div>
