@@ -5,7 +5,7 @@ Interactive command-line tool for creating new Nexcn projects.
 ## Usage
 
 ```bash
-npx nexcn my-app
+npx @mg/nexcn my-app
 ```
 
 ## Features
@@ -57,5 +57,5 @@ The CLI is automatically published with the npm package via the `bin` field in `
 
 This allows users to run:
 
-- `npx nexcn my-app`
+- `npx @mg/nexcn my-app`
 - `npm install -g nexcn && create-nexcn my-app`

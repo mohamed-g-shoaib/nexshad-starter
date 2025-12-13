@@ -2,8 +2,8 @@
 
 ![Nexcn Starter Banner](./app/opengraph-image.png)
 
-[![npm version](https://img.shields.io/npm/v/nexcn.svg)](https://www.npmjs.com/package/nexcn)
-[![npm downloads](https://img.shields.io/npm/dm/nexcn.svg)](https://www.npmjs.com/package/nexcn)
+[![npm version](https://img.shields.io/npm/v/@mg/nexcn.svg)](https://www.npmjs.com/package/@mg/nexcn)
+[![npm downloads](https://img.shields.io/npm/dm/@mg/nexcn.svg)](https://www.npmjs.com/package/@mg/nexcn)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Next.js 16 starter with everything you need to ship fast: TypeScript, Tailwind CSS v4, Base UI, internationalization, and testing configured out of the box.
@@ -24,7 +24,7 @@ Before getting started, make sure you have:
 ### Option 1: Using npx (Recommended) ⚡
 
 ```bash
-npx nexcn my-app
+npx @mg/nexcn my-app
 ```
 
 This will:
