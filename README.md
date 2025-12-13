@@ -2,6 +2,10 @@
 
 ![Nexcn Starter Banner](./app/opengraph-image.png)
 
+[![npm version](https://img.shields.io/npm/v/nexcn.svg)](https://www.npmjs.com/package/nexcn)
+[![npm downloads](https://img.shields.io/npm/dm/nexcn.svg)](https://www.npmjs.com/package/nexcn)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Next.js 16 starter with everything you need to ship fast: TypeScript, Tailwind CSS v4, Base UI, internationalization, and testing configured out of the box.
 
 ## About Nexcn
@@ -17,11 +21,40 @@ Before getting started, make sure you have:
 
 ## Quick Start
 
+### Option 1: Using npx (Recommended) ⚡
+
 ```bash
-# 1. Install dependencies
+npx nexcn my-app
+```
+
+This will:
+
+- ✓ Check prerequisites (Node.js, Git, pnpm)
+- ✓ Download the latest version
+- ✓ Install dependencies
+- ✓ Initialize git repository
+- ✓ Display beautiful ASCII art 🎨
+
+Then:
+
+```bash
+cd my-app
+pnpm dev
+```
+
+### Option 2: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/mohamed-g-shoaib/nexcn.git my-app
+
+# Navigate to your project
+cd my-app
+
+# Install dependencies
 pnpm install
 
-# 2. Run development server
+# Run development server
 pnpm dev
 ```
 
@@ -50,10 +83,11 @@ Read the guides in order to get started:
 6. **[Testing Guide](./docs/06-testing-guide.md)** - Writing unit and E2E tests with Vitest and Playwright
 7. **[SEO Optimization](./docs/08-seo-optimization.md)** - Optimize for Google ranking, sitemap, JSON-LD schema, and LLM crawling
 8. **[Cheat Sheet](./docs/07-cheat-sheet.md)** - Quick reference for common tasks and commands
+9. **[Publishing to npm](./docs/09-publishing-to-npm.md)** - Guide for publishing this boilerplate to npm registry
 
 ## Commands
 
-Development
+### Development
 
 ```bash
 pnpm dev # Start dev server
@@ -61,7 +95,7 @@ pnpm build # Build for production
 pnpm start # Run production build
 ```
 
-Testing
+### Testing
 
 ```bash
 pnpm test # Run unit tests
@@ -69,7 +103,7 @@ pnpm test:e2e # Run E2E tests
 pnpm test:coverage # Generate coverage report
 ```
 
-Code Quality
+### Code Quality
 
 ```bash
 pnpm lint # Check for linting errors
@@ -89,21 +123,21 @@ pnpm start
 
 ## Troubleshooting
 
-**"pnpm command not found"**
+### "pnpm command not found"
 
 - Install pnpm globally: `npm install -g pnpm`
 - Or use npx: `npx pnpm install`
 
-**Port 3000 already in use**
+### Port 3000 already in use
 
 - Run dev server on a different port: `pnpm dev -- -p 3001`
 
-**Styling not applying correctly**
+### Styling not applying correctly
 
 - Clear `.next` cache: `rm -rf .next` (or `rmdir /s .next` on Windows)
 - Restart the development server
 
-**TypeScript errors in IDE**
+### TypeScript errors in IDE
 
 - Make sure TypeScript is installed: `npm install -g typescript`
 - Restart your editor's TypeScript server
