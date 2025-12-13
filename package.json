@@ -1,7 +1,65 @@
 {
-  "name": "nexcn-starter",
+  "name": "nexcn",
   "version": "0.1.0",
-  "private": true,
+  "description": "A Next.js 16 starter with TypeScript, Tailwind CSS v4, Base UI, internationalization, and testing configured out of the box",
+  "keywords": [
+    "nextjs",
+    "nextjs-starter",
+    "nextjs-boilerplate",
+    "typescript",
+    "tailwindcss",
+    "tailwind-v4",
+    "base-ui",
+    "shadcn-ui",
+    "next-intl",
+    "i18n",
+    "internationalization",
+    "vitest",
+    "playwright",
+    "testing",
+    "boilerplate",
+    "starter-template",
+    "cli"
+  ],
+  "homepage": "https://nexcn.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohamed-g-shoaib/nexcn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohamed-g-shoaib/nexcn/issues"
+  },
+  "author": "Mohamed G. Shoaib",
+  "license": "MIT",
+  "bin": {
+    "create-nexcn": "./cli/index.js"
+  },
+  "files": [
+    "cli",
+    "app",
+    "components",
+    "lib",
+    "i18n",
+    "messages",
+    "public",
+    "docs",
+    "components.json",
+    "next.config.ts",
+    "tsconfig.json",
+    "postcss.config.mjs",
+    "eslint.config.mjs",
+    "playwright.config.ts",
+    "vitest.config.ts",
+    "vitest.setup.ts",
+    "proxy.ts",
+    ".prettierrc",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,7 +74,8 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prepublishOnly": "pnpm type-check && pnpm lint"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
