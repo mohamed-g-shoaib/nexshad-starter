@@ -13,7 +13,7 @@
  */
 
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Script from "next/script";
 import { useLocale, useTranslations } from "next-intl";
 import { isRTLLocale } from "@/lib/rtl";
