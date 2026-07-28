@@ -1,21 +1,14 @@
-![Forge banner](./marketing-site/public/marketing-image.jpg)
+![Forge banner](./marketing-site/public/forge-cover.webp)
 
 # Forge
 
-Forge is a CLI that scaffolds clean React starters you can edit immediately.
+Forge is a CLI that generates clean React starters for teams who want to begin with the app shell already wired.
 
-It uses shadcn for the scaffold, then applies Forge setup for app shell wiring, theme support, optional RTL routing, framework-appropriate i18n, sound hooks, fallback pages, metadata, code-quality tooling, and starter docs.
-
-Website: [use-forge.vercel.app](https://use-forge.vercel.app/)
-
-> [!WARNING]
-> Do not use `npm i create-use-forge` to start a new app.
-> It only installs the package and does not run the initializer.
-> Use the **Create an app** commands below.
+It combines a shadcn scaffold with Forge-owned setup for theme switching, optional RTL routing, framework-specific i18n, sound hooks, fallback pages, metadata, code-quality tooling, and starter documentation. The generated app stays intentionally small so it is easy to understand and replace.
 
 ## Create an app
 
-Use one of these commands to start a new project:
+The published initializer package is named `create-use-forge`. Once the current package release has been published and registry-verified, use one of these commands:
 
 ```bash
 npm create use-forge@latest
@@ -24,220 +17,143 @@ bun create use-forge
 yarn create use-forge
 ```
 
-## Naming rules
-
-Project names must use lowercase letters, numbers, and single hyphens.
-
-Valid examples:
-
-```txt
-my-app
-forge-demo
-app2
-```
-
-Invalid examples:
-
-```txt
-MyApp
-my_app
-my--app
-my app
-con
-```
-
-The special name `.` is valid when you generate into the current empty folder.
+Do not use `npm i create-use-forge` as the initializer command. That installs the package without running the generator.
 
 ## What Forge generates
 
-Forge starters stay intentionally minimal.
+Every generated starter includes:
 
-Each generated app includes:
+- a minimal editable starter page
+- theme switching
+- framework-native error and not-found surfaces
+- favicon and minimal metadata
+- centralized click and theme-switch sound hooks
+- a README with commands for the selected package manager
+- one selected lint and format setup
 
-- a minimal starter page
-- a theme switch
-- a language switch only when RTL is enabled
-- `next-intl` for Next.js RTL starters
-- `react-i18next` for Vite and TanStack Start RTL starters
-- framework-native error and not-found pages
-- favicon and core metadata
-- sound hooks for clicks and theme switching
-- lint and format setup based on your chosen option
-- a README that matches your package manager
-
-Generated apps do not include Forge internal specs, skills, or planning docs.
-
-## Choose your setup
-
-Frameworks:
-
-- `next` (Next.js)
-- `vite` (Vite)
-- `start` (TanStack Start)
-
-UI base:
-
-- `base` (Base UI)
-- `radix` (Radix UI)
-
-Direction:
-
-- `--ltr` for English only
-- `--rtl` for English and Arabic with locale routes
-
-I18n in RTL mode:
+RTL mode additionally includes English and Arabic locale routes, a language switch, and runtime `lang`/`dir` handling:
 
 - Next.js uses `next-intl`
 - Vite uses `react-i18next`
 - TanStack Start uses `react-i18next`
 
-Package manager:
+## Choose a setup
 
-- `pnpm`
-- `npm`
-- `yarn`
-- `bun`
+| Option          | Supported values                           |
+| --------------- | ------------------------------------------ |
+| Framework       | `next`, `vite`, `start`                    |
+| UI primitives   | `base`, `radix`                            |
+| Direction       | `--ltr` or `--rtl`                         |
+| Package manager | `pnpm`, `npm`, `yarn`, `bun`               |
+| Code quality    | `biome`, `eslint-prettier`, `oxlint-oxfmt` |
 
-Code quality:
+`start` means TanStack Start. The default configuration is Next.js, Base UI, LTR, pnpm, and Biome.
 
-- `biome`
-- `eslint-prettier`
-- `oxlint-oxfmt`
+Project names use lowercase letters, numbers, and single hyphens. The special name `.` generates into the current empty directory.
 
-Current default preset:
+## Direct CLI usage
 
-```txt
-next + base + ltr + pnpm + biome
-```
-
-## Common Forge commands
-
-After app creation, these are the commands most users need:
+Run Forge interactively from source:
 
 ```bash
-forge generate
+pnpm dev
 ```
 
-Preview plan only:
+Preview a generation plan without writing files:
 
 ```bash
-forge plan
+pnpm dev -- plan --framework next --base base --ltr
 ```
 
-Generate from flags:
+Generate directly from flags:
 
 ```bash
-forge generate --name my-app --framework next --base base --ltr --package-manager pnpm --code-quality biome
+pnpm dev -- generate \
+  --name my-app \
+  --framework next \
+  --base base \
+  --ltr \
+  --package-manager pnpm \
+  --code-quality biome
 ```
 
-Generate in current empty folder:
+Generate a retained regression fixture:
 
 ```bash
-forge generate --name .
+pnpm dev -- generate --fixture \
+  --name next-base-ltr \
+  --framework next \
+  --base base \
+  --ltr
 ```
 
-Generate a retained fixture in `fixtures/`:
-
-```bash
-forge generate --fixture --name next-base-ltr --framework next --base base --ltr
-```
-
-## Advanced command paths
-
-If you installed the package and want to run it manually, use one of these:
-
-```bash
-npx create-use-forge generate
-npm exec create-use-forge -- generate
-```
-
-If `forge` is already available in your environment, this also works:
-
-```bash
-forge generate
-```
-
-## Current status
-
-Forge is release-ready locally for the current generator surface.
-
-The npm package name is `create-use-forge`, and it exposes:
-
-- `forge`
-- `create-use-forge`
-
-The current package version is `0.1.4`.
-
-The marketing site is deployed from `marketing-site/` on Vercel. The remaining public release steps are npm publish and registry verification.
-
-## Maintainers
-
-This section is for contributors and release maintainers.
-
-### How Forge is built
-
-Forge is a single-package TypeScript CLI with three layers:
-
-1. Scaffold adapter
-2. Framework overlay
-3. Feature packs
-
-In short, scaffold tools create the base app, overlays apply framework shell details, and feature packs add cross-cutting pieces like docs, sounds, metadata, dependency freshness, and code quality.
-
-### Repository map
-
-```txt
-src/                  CLI, generator, overlays, feature packs, verification
-assets/branding/      Forge assets copied into generated apps
-fixtures/             generated regression fixtures
-marketing-site/       Next.js marketing site
-spec/                 project contracts and working memory
-deprecated/           legacy code outside active surface
-```
-
-### Development
-
-Install dependencies:
-
-```bash
-pnpm install
-```
-
-Run CLI from source:
-
-```bash
-pnpm dev -- --help
-pnpm dev -- plan
-pnpm dev -- generate --dry-run
-```
-
-Build:
+After building the package, the same commands are available through `forge` or `create-use-forge`:
 
 ```bash
 pnpm build
+node dist/index.js --help
 ```
 
-Typecheck:
+## How the generator works
+
+Forge is a single-package TypeScript CLI built around three layers:
+
+1. The scaffold adapter invokes the current shadcn scaffold for the selected framework and primitive base.
+2. A framework overlay adds the app shell, routing, providers, fallback surfaces, and framework-specific files.
+3. Feature packs add shared concerns such as sounds, metadata, docs, dependency freshness, CSS polish, RTL runtime behavior, and code quality.
+
+Generated projects are verified after generation. The verification flow runs the selected package manager’s install, formatting, lint, format check, typecheck, and build commands. TanStack Start builds before typechecking because its route tree is generated during the build flow.
+
+Retained fixtures under [`fixtures/`](./fixtures) are generated outputs used as regression targets, not hand-maintained template copies.
+
+## Development
+
+Requirements:
+
+- Node.js `>=20.19.0`
+- pnpm `10.29.3` for the Forge repository
+
+Install dependencies and run the core checks:
 
 ```bash
+pnpm install --frozen-lockfile
 pnpm typecheck
-```
-
-Test:
-
-```bash
 pnpm test
+pnpm build
+pnpm format:check
 ```
 
-Inspect package contents:
+Inspect the package that would be published:
 
 ```bash
 npm pack --dry-run
 ```
 
-### Marketing site
+Local tarball smoke tests should use `npm exec --package <tarball>` rather than `npm create <tarball>`.
 
-Local checks:
+## Repository map
+
+```txt
+src/                 CLI, configuration, scaffolding, overlays, features, and verification
+assets/branding/     Assets copied into generated applications
+fixtures/            Generated regression fixtures
+marketing-site/      Separate Next.js marketing site
+spec/                Product contracts, implementation notes, and release documentation
+```
+
+The main contracts are:
+
+- [Generator contract](./spec/generator-contract.md)
+- [CLI experience](./spec/cli-experience.md)
+- [Dependency freshness](./spec/dependency-freshness.md)
+- [Release and publishing](./spec/release-and-publishing.md)
+- [Project context](./spec/context.md)
+
+## Marketing site
+
+The marketing site lives in [`marketing-site/`](./marketing-site) and is deployed separately from the CLI package.
+
+Run its local checks with:
 
 ```bash
 pnpm --dir marketing-site typecheck
@@ -245,32 +161,14 @@ pnpm --dir marketing-site lint
 pnpm --dir marketing-site build
 ```
 
-Vercel settings:
+Its production domain is [use-forge.vercel.app](https://use-forge.vercel.app/). Vercel should use `marketing-site/` as the project root.
 
-```txt
-Root Directory: marketing-site
-Framework Preset: Next.js
-Install Command: default
-Build Command: default
-Output Directory: default
-```
+## Current release status
 
-### Release
+The root package is prepared as `create-use-forge` version `0.1.4`, with MIT licensing, both CLI binaries, a narrow npm files allowlist, and local typecheck, test, build, packaging, and tarball smoke-test coverage documented in the release checklist.
 
-Release checklist: [spec/release-and-publishing.md](./spec/release-and-publishing.md)
-
-Before npm publish:
-
-```bash
-pnpm install --frozen-lockfile
-pnpm typecheck
-pnpm test
-pnpm build
-npm pack --dry-run
-```
-
-For local tarball smoke tests, use `npm exec --package <tarball>` instead of `npm create <tarball>`.
+The remaining public release work is npm publishing followed by registry verification of the initializer commands.
 
 ## License
 
-MIT. See [LICENSE](./LICENSE).
+Forge is released under the [MIT License](./LICENSE).
